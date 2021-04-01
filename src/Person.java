@@ -1,7 +1,10 @@
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 
 public class Person {
+    ArrayList<String> personInfo = new ArrayList<>();
+
     public enum Sex {
         MALE, FEMALE
     }
@@ -30,7 +33,7 @@ public class Person {
        return period.getYears();
     }
 
-    public void printPerson() {
-        System.out.println(this.name + ", " + this.birthday + ", " + this.gender + ", " + this.emailAddress);
+    public String printPerson() {
+        return this.name + ", " + this.birthday + ", " + this.gender + ", " + this.emailAddress;
     }
 }
