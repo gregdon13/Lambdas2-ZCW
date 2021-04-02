@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -5,10 +6,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class SearchAnonymous{
+    ArrayList<Person> personList = new ArrayList<>();
 
     public SearchAnonymous() {}
 
-    public void printPersons(List<Person> roster) {
+    public ArrayList<Person> printPersons(List<Person> roster) {
+        ArrayList<Person> temp = new ArrayList<>();
         CheckPerson tester = new CheckPerson() {
             @Override
             public boolean test(Person p) {
@@ -20,8 +23,10 @@ public class SearchAnonymous{
         };
         for (Person p : roster) {
             if (tester.test(p)) {
+                temp.add(p);
                 System.out.println(p.printPerson());
             }
         }
+        return temp;
     }
 }
